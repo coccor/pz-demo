@@ -1,0 +1,15 @@
+crm:
+  connector: localfiles
+  entities:
+    orders:
+      read:
+        path: data/orders.csv
+        format: csv
+    customers:
+      read:
+        path: data/customers.csv
+        format: csv
+
+mart:
+  connector: localfiles
+  root: out
