@@ -1,4 +1,6 @@
-order_id,customer_id,amount,placed_on
-1,10,25.50,2026-07-01
-2,10,80.00,2026-07-03
-3,11,12.25,2026-07-04
+id,customer_id,amount,status
+1,1,25.50,shipped
+2,2,8.00,shipped
+3,1,42.00,returned
+4,3,5.00,pending
+5,2,15.75,shipped

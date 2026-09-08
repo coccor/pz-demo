@@ -1,6 +1,7 @@
 select
-    order_id,
+    id,
     customer_id,
     amount,
-    placed_on
-from {{ source('crm', 'orders') }}
+    status
+from {{ source('raw', 'orders') }}
+where amount >= {{ var('min_amount') }}
