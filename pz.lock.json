@@ -4,7 +4,7 @@
   "packages": [
     {
       "id": "Pz.Connector.DeltaLake",
-      "version": "0.2.1",
+      "version": "9.9.9",
       "sha512": "de491512c732b097fa8584fc4b148e18404a9150b1a9aea5433d3171fd51db30e5986532b154406c3fa2d9c61393e0f909ec24f4bee798c1a6261dc7bbd52ffd",
       "requested": true,
       "assets": {
