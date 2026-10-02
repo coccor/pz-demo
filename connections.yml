@@ -23,6 +23,18 @@ raw:
           customer_id: bigint
           amount: double
           status: varchar
+    # Incremental: events_log.sql bounds its read by the stored watermark on updated_at. The watermark
+    # lives on the platform (state routes), not in the workspace, so it survives a scale to zero.
+    events:
+      read:
+        path: data/events.csv
+        format: csv
+        columns:
+          order_id: bigint
+          customer_id: bigint
+          amount: double
+          status: varchar
+          updated_at: timestamp
 
 lake:
   connector: localfiles
