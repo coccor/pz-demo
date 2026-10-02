@@ -4,6 +4,10 @@ version: 0.1.0
 connectors:
   - package: Pz.Connector.LocalFiles
     version: 0.1.0
+  # External connector: not builtin, so `pz restore` resolves it from nuget.org into pz.lock.json and the
+  # platform delivers the restored package to the agent. Runs out of process (a native binary).
+  - package: Pz.Connector.DeltaLake
+    version: 0.2.1
 
 vars:
   min_amount: 10

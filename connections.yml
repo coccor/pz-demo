@@ -25,6 +25,15 @@ raw:
           status: varchar
     # Incremental: events_log.sql bounds its read by the stored watermark on updated_at. The watermark
     # lives on the platform (state routes), not in the workspace, so it survives a scale to zero.
+    delta_orders:
+      read:
+        path: data/delta_orders.csv
+        format: csv
+        columns:
+          id: bigint
+          dt: varchar
+          placed_at: timestamp
+          amount: double
     events:
       read:
         path: data/events.csv
@@ -35,6 +44,12 @@ raw:
           amount: double
           status: varchar
           updated_at: timestamp
+
+# A Delta lake on the machine that runs the pipeline. The root must be absolute (PZDL0101); /tmp is
+# writable for the non-root user of the hosted agent image.
+delta:
+  connector: deltalake
+  root: /tmp/px-delta
 
 lake:
   connector: localfiles

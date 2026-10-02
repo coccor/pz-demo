@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "rid": "linux-x64",
+  "packages": [
+    {
+      "id": "Pz.Connector.DeltaLake",
+      "version": "0.2.1",
+      "sha512": "de491512c732b097fa8584fc4b148e18404a9150b1a9aea5433d3171fd51db30e5986532b154406c3fa2d9c61393e0f909ec24f4bee798c1a6261dc7bbd52ffd",
+      "requested": true,
+      "assets": {
+        "lib": [],
+        "native": [
+          {
+            "file": "Pz.Connector.DeltaLake",
+            "archivePath": "runtimes/linux-x64/native/Pz.Connector.DeltaLake",
+            "sha512": "6631caff18735d70c80ef8aa374ce0b3068bbe35f22690f82c25be87f4389072fe9429e2e075f62a85636779d1eed24e5fbdf3f273d2fd114bb1783b6c485e68"
+          },
+          {
+            "file": "libdelta_kernel_ffi.so",
+            "archivePath": "runtimes/linux-x64/native/libdelta_kernel_ffi.so",
+            "sha512": "25105f69ef5259eabf3ce131c60970dbde4b1bfcd9f10b97ca005300d2f25380ae47182f67d4938490e66707b9147e45141ae3600413060f7b7422cf19a2a6f1"
+          },
+          {
+            "file": "libdelta_rs_bridge.so",
+            "archivePath": "runtimes/linux-x64/native/libdelta_rs_bridge.so",
+            "sha512": "bbb139dd9adfd35423bb304afc5d80ca922e3542ff485dc881141404e8297dd442da42552ceb7ec357d38f0bbfd87b82e7be84e05bd127237e046acb7e1079e7"
+          }
+        ]
+      }
+    }
+  ]
+}
