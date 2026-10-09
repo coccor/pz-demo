@@ -44,6 +44,40 @@ raw:
           amount: double
           status: varchar
           updated_at: timestamp
+    # Backfill in slices: each run loads at most 3 ids past the watermark and the backfill is done at
+    # id 10, so it takes four runs. PipelineX's "Repeat until caught up" queues them one after another.
+    backfill_orders:
+      read:
+        path: data/backfill_orders.csv
+        format: csv
+        columns:
+          id: bigint
+          customer_id: bigint
+          amount: double
+          placed_at: timestamp
+        sync:
+          mode: incremental
+          cursor: id
+          max_window: "3"
+          initial: "0"
+          until: "10"
+    # Keep a source current in windows: two days per run from 1 October up to the time the run started
+    # (UTC). A nightly trigger with "Repeat until caught up" catches up however far behind it fell.
+    window_events:
+      read:
+        path: data/window_events.csv
+        format: csv
+        columns:
+          event_id: bigint
+          order_id: bigint
+          status: varchar
+          updated_at: timestamp
+        sync:
+          mode: incremental
+          cursor: updated_at
+          max_window: "2d"
+          initial: "2026-10-01T00:00:00"
+          until: now
 
 # A Delta lake on the machine that runs the pipeline. The root must be absolute (PZDL0101); /tmp is
 # writable for the non-root user of the hosted agent image.
